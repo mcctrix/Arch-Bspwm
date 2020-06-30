@@ -1,0 +1,54 @@
+#! /bin/sh
+xrdb -load ~/.Xresources
+sxhkd &
+
+sh /home/ctrix/.config/polybar/launch.sh &
+#sh /home/ctrix/.config/polybar/autostart.sh &
+#sh /home/ctrix/.config/bspwm/wallpaper_automation.sh &
+
+killall picom
+picom &
+
+killall -q xfce4-clipman
+xfce4-clipman & 
+
+killall -q nm-applet
+nm-applet &
+
+kilall -q mpd
+mpd &
+
+
+feh --bg-scale "$(< "${HOME}/.cache/wal/wal")"
+
+bspc monitor eDP-1 -d DEV WWW DOC ETC MEDIA 
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+
+###---Monitor And Desktop Settings----###
+bspc config border_width 1
+bspc config window_gap 18
+bspc config bottom_padding 0
+bspc config top_padding 30
+bspc config left_padding 0
+bspc config right_padding 0
+#bspc config border_radius 15
+
+bspc rule -a firefox desktop='^1'
+
+
+
+#get xrdb colors
+#highlight=$(xrdb -query | grep "*.highlight" | cut -f 2)
+#background=$(xrdb -query | grep "*.background-no-transparancy:" | cut -f 2)
+#highlight=#fb3d66
+background=#1d1f21
+
+
+bspc config focused_border_color "$highlight"
+bspc config normal_border_color "$background"
+
+bspc config focus_follows_pointer true
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle false
