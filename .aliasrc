@@ -1,0 +1,31 @@
+#switch between bash and zsh
+alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+
+#add new fonts
+alias update-fc='fc-cache -fv'
+
+alias ssn="sudo shutdown now"
+alias sr="sudo reboot"
+alias up-xrdb='xrdb -load .Xresources'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias fre='free -h'
+
+# ls
+alias lsl='ls -lah'
+
+#Pacman Alias
+alias upgrade='sudo pacman -Syyu'
+alias update='sudo pacman -Sy'
+alias list-all='sudo pacman -Qt'
+alias install='sudo pacman -S'
+alias uninstall='sudo pacman -R'
+alias uninstall-sc='uninstall -sc'
+
+alias 4kvideo='devour sh /usr/lib/4kvideodownloader/4kvideodownloader.sh'
+
+#Backup
+alias backup_config="cp -rf ~/.zshrc /home/ctrix/Data/Linux/Dotfiles/Zsh/zshrc && cp -rf ~/.config/* /home/ctrix/Data/Linux/Dotfiles/My_arch_linux/config && cp -rf ~/.aliasrc /home/ctrix/Data/Linux/Dotfiles/Zsh/aliasrc"
+
+alias zshcfg='vim ~/.zshrc' 
+alias aliascfg='vim ~/.aliasrc'
